@@ -9,4 +9,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build Plugins
-        uses: recloudstream/cloudstream-reponame-template@master
+        uses: recloudstream/gradle-template@master
