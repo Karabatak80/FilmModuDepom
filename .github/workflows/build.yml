@@ -8,10 +8,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
+
       - name: Build Plugins
-        uses: recloudstream/cloudstream-extensions-multirepo@master
+        run: |
+          if [ -f gradlew ]; then
+            chmod +x gradlew
+            ./gradlew make
+          else
+            echo "Gradlew dosyası bulunamadı, lütfen ana dizinde olduğundan emin olun."
+            exit 1
+          fi
